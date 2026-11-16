@@ -297,6 +297,7 @@ def annual_costs(P_tonnes, p):
 
 def min_selling_price(P_tonnes, p):
     """Minimum selling price of B, $/kg."""
+    # .values() gives just the numbers from the dictionary, without their names
     return sum(annual_costs(P_tonnes, p).values()) / (P_tonnes * 1000)
 
 costs = annual_costs(P_design, p)
@@ -305,6 +306,7 @@ TCI = capital_cost(reactor_volume(P_design, p), p)
 print(f"At {P_design:,} t/yr the total capital is {TCI/1e6:.1f} M$")   # :, adds thousands commas
 print(f"Minimum selling price: ${msp:.2f}/kg")
 # :22s pads the text to 22 characters, :7.2f is 7 wide with 2 decimals, :.0% is a percentage
+# .items() gives each name together with its value
 for name, c in costs.items():
     print(f"  {name:22s} {c/1e6:7.2f} M$/yr  ({c / sum(costs.values()):.0%})")
 
