@@ -146,6 +146,8 @@ def cstr_residual(CA, V, v0, p):
 # `args` passes the other inputs through to the function.
 
 # %%
+from scipy.optimize import fsolve   # already imported at the top; repeated to show where it comes from
+
 V_pilot = 0.050      # m3 (50 L)
 v0_pilot = 0.0125    # m3/h (12.5 L/h), so the residence time is 4 h
 
@@ -382,6 +384,8 @@ plt.show()
 # `minimize_scalar` finds the conversion with the lowest MSP.
 
 # %%
+from scipy.optimize import minimize_scalar   # already imported at the top; repeated to show where it comes from
+
 def msp_at_conversion(X):
     q = p.copy()
     q["X"] = X
@@ -421,6 +425,8 @@ plt.show()
 # `v0` and `p` from outside it, which works but means it depends on whatever those were last set to.
 
 # %%
+from scipy.integrate import solve_ivp   # already imported at the top; repeated to show where it comes from
+
 FA0 = P_design * 1000 / p["MW"] / p["hours"] / p["X"]   # kmol/h of A
 v0 = FA0 / p["CA0"]                                     # m3/h
 
