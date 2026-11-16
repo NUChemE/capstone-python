@@ -378,6 +378,15 @@ plt.show()
 # correlation. (The rate constant matters much less, because it changes only the size of the reactor, and the
 # reactor is a small part of the cost.)
 #
+# A tornado chart is a *local*, one-at-a-time sensitivity analysis. It changes one input while the
+# others sit at their base values, so it cannot show interactions (an input that matters only when
+# another is also high), and the answer depends on the low and high values you chose. A *global*
+# sensitivity analysis varies all the inputs together, sampled from ranges or probability
+# distributions, and works out how much of the spread in the MSP each input causes, alone and through
+# interactions. The Python library [SALib](https://salib.readthedocs.io) does this (Sobol indices,
+# the Morris method and others) in a few lines, using a function like `min_selling_price`. For the
+# ideas behind it, see Saltelli et al., *Global Sensitivity Analysis: The Primer* (Wiley, 2008).
+#
 # ## 8. Optimization: the best conversion
 #
 # Higher conversion wastes less A but needs a much bigger reactor, since $V \propto X/(1-X)^2$.
