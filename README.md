@@ -43,7 +43,8 @@ and Python for everything wrapped around its numbers.
 | Fit a rate law or a correlation to data | `scipy.optimize.curve_fit` | [pycse: nonlinear regression](https://kitchingroup.cheme.cmu.edu/pycse/book/11-regression.html) |
 | Find the best design (minimize cost, maximize profit) | `scipy.optimize.minimize`, `minimize_scalar` | [pycse: optimization](https://kitchingroup.cheme.cmu.edu/pycse/book/10-min-max.html), [constrained](https://kitchingroup.cheme.cmu.edu/pycse/book/13-constrained-optimization.html) |
 | Keep track of units | [`pint`](https://pint.readthedocs.io/) | its tutorial |
-| Get physical properties (densities, vapor pressures, enthalpies) | [`CoolProp`](http://www.coolprop.org/), [`thermo`](https://thermo.readthedocs.io/) | their docs |
+| Get accurate properties of a common pure fluid (steam, CO₂, air, N₂, H₂, NH₃, refrigerants, light hydrocarbons) | [`CoolProp`](http://www.coolprop.org/) | its docs; start with `PropsSI` |
+| Get properties of almost any other chemical, or of mixtures (flashes, bubble and dew points, activity coefficients, ΔH<sub>f</sub>) | [`thermo`](https://thermo.readthedocs.io/) and [`chemicals`](https://chemicals.readthedocs.io/) | their docs; values are often estimated, so check a few against a handbook |
 | Work with kinetics, equilibrium and thermochemistry of gas mixtures | [`cantera`](https://cantera.org/) | its examples |
 | Handle tables of costs, data, or results | [`pandas`](https://pandas.pydata.org/) | its "10 minutes to pandas" page |
 | Build rigorous, equation-oriented flowsheets | [IDAES](https://idaes.org/) (built on [Pyomo](https://www.pyomo.org/)) | powerful, but a steep climb |
