@@ -47,6 +47,8 @@ and Python for everything wrapped around its numbers.
 | Get properties of almost any other chemical, or of mixtures (flashes, bubble and dew points, activity coefficients, ΔH<sub>f</sub>) | [`thermo`](https://thermo.readthedocs.io/) and [`chemicals`](https://chemicals.readthedocs.io/) | their docs; values are often estimated, so check a few against a handbook |
 | Work with kinetics, equilibrium and thermochemistry of gas mixtures | [`cantera`](https://cantera.org/) | its examples |
 | Handle tables of costs, data, or results | [`pandas`](https://pandas.pydata.org/) | its "10 minutes to pandas" page |
+| Simulate a whole process and do the techno-economic analysis in Python | [BioSTEAM](https://biosteam.readthedocs.io/) | its tutorials; written for biorefineries, but general |
+| Use a free, Aspen-like simulator with a graphical interface | [DWSIM](https://dwsim.org/) | open source, runs on Windows, Mac and Linux, scriptable in Python |
 | Build rigorous, equation-oriented flowsheets | [IDAES](https://idaes.org/) (built on [Pyomo](https://www.pyomo.org/)) | powerful, but a steep climb |
 | See where flowsheet modeling in Python is heading | [difflow](https://kitchingroup.cheme.cmu.edu/differentiable-flowsheets/README.html) | [TEA example](https://kitchingroup.cheme.cmu.edu/differentiable-flowsheets/examples/05_technoeconomic_analysis.html) |
 
