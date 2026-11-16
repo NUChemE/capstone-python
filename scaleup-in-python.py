@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.19.1
+#       jupytext_version: 1.19.5
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -234,11 +234,11 @@ plt.show()
 def cooling_dT(P_tonnes, p):
     """Reactor-to-coolant temperature difference (K) needed to remove the heat through the jacket."""
     V = reactor_volume(P_tonnes, p)
-    n = np.ceil(V / p["V_max"])                    # number of vessels in parallel
-    Vi = V / n                                     # volume of each, m3
+    n_vessels = np.ceil(V / p["V_max"])            # number of vessels in parallel
+    Vi = V / n_vessels                             # volume of each, m3
     D = (4 * Vi / (1.5 * np.pi))**(1/3)            # diameter, m, from V = (pi/4) D^2 (1.5 D)
     A = np.pi * D * (1.5 * D) + np.pi * D**2 / 4   # jacketed wall + bottom, m2
-    FB = P_tonnes * 1000 / p["MW"] / p["hours"] / n   # kmol/h of B made in each vessel
+    FB = P_tonnes * 1000 / p["MW"] / p["hours"] / n_vessels   # kmol/h of B made in each vessel
     Q = FB * -p["dH"] * 1000 / 3600                # heat released per vessel, W
     return Q / (p["U"] * A)
 
@@ -277,8 +277,8 @@ print(f"A jacket alone is not enough above about {round(too_hot.min(), -3):,.0f}
 # %%
 def capital_cost(V, p):
     """Total capital investment, $, for a total reactor volume V (m3)."""
-    n = np.ceil(V / p["V_max"])                                   # vessels in parallel
-    reactors = n * p["C_ref"] * (V / n / p["V_ref"])**p["n_exp"]   # six-tenths rule, per vessel
+    n_vessels = np.ceil(V / p["V_max"])                           # vessels in parallel
+    reactors = n_vessels * p["C_ref"] * (V / n_vessels / p["V_ref"])**p["n_exp"]   # six-tenths rule, per vessel
     equipment = reactors / p["f_reactor"]                         # all purchased equipment
     return p["lang"] * equipment
 
